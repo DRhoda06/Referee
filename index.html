@@ -3,190 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soccer Referee App Preview</title>
+    <title>Apple Watch Soccer Referee Interface</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <header class="app-header">
-            <h1>⚽ Soccer Referee App</h1>
-            <p>Professional match management and reporting</p>
-        </header>
-
-        <div class="main-content">
-            <!-- Match List View -->
-            <div class="view" id="matchList">
-                <div class="view-header">
-                    <h2>Matches</h2>
-                    <button class="btn btn-primary" onclick="startNewMatch()">
-                        <span class="icon">+</span> New Match
-                    </button>
-                </div>
-                <div class="match-list">
-                    <div class="match-item" onclick="openMatch(1)">
-                        <div class="match-teams">Team A vs Team B</div>
-                        <div class="match-status active">Active</div>
-                    </div>
-                    <div class="match-item" onclick="openMatch(2)">
-                        <div class="match-teams">Liverpool vs Arsenal</div>
-                        <div class="match-status completed">Completed</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Match Detail View -->
-            <div class="view hidden" id="matchDetail">
-                <div class="view-header">
-                    <button class="btn btn-secondary" onclick="goBack()">← Back</button>
-                    <h2 id="matchTitle">Team A vs Team B</h2>
-                </div>
-
-                <div class="match-info">
-                    <div class="score-display">
-                        <div class="team-score">
-                            <span class="team-name">Team A</span>
-                            <span class="score" id="homeScore">2</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team-score">
-                            <span class="team-name">Team B</span>
-                            <span class="score" id="awayScore">1</span>
+    <div class="container">
+        <h1>⚽ Apple Watch Soccer Referee</h1>
+        
+        <div class="watch-container">
+            <div class="watch-bezel">
+                <div class="watch-screen">
+                    <div class="status-bar">
+                        <span class="time">9:41</span>
+                        <div class="indicators">
+                            <span class="battery">🔋</span>
                         </div>
                     </div>
-
-                    <div class="match-timer">
-                        <div class="half-info">Half: <span id="currentHalf">1</span></div>
-                        <div class="time-display" id="timeDisplay">45:30</div>
-                        <div class="timer-controls">
-                            <button class="btn btn-success" id="timerBtn" onclick="toggleTimer()">Start</button>
-                            <button class="btn btn-warning" onclick="pauseTimer()">Pause</button>
+                    
+                    <div class="app-content">
+                        <div class="match-header">
+                            <div class="half-indicator">Half: <span id="currentHalf">1</span></div>
+                            <div class="match-time" id="matchTime">45:30</div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="event-controls">
-                    <h3>Record Event</h3>
-                    <div class="event-buttons">
-                        <button class="btn event-btn goal" onclick="addEvent('goal')">
-                            ⚽ Goal
-                        </button>
-                        <button class="btn event-btn yellow" onclick="addEvent('yellowCard')">
-                            🟨 Yellow Card
-                        </button>
-                        <button class="btn event-btn red" onclick="addEvent('redCard')">
-                            🟥 Red Card
-                        </button>
-                        <button class="btn event-btn substitution" onclick="addEvent('substitution')">
-                            🔄 Substitution
-                        </button>
-                    </div>
-                </div>
-
-                <div class="events-timeline">
-                    <h3>Event Timeline</h3>
-                    <div class="events-list" id="eventsList">
-                        <div class="event-item goal">
-                            <span class="event-time">23:45</span>
-                            <span class="event-type">Goal</span>
-                            <span class="event-team">Team A</span>
-                            <span class="event-player">Player #10</span>
-                        </div>
-                        <div class="event-item yellow">
-                            <span class="event-time">31:20</span>
-                            <span class="event-type">Yellow Card</span>
-                            <span class="event-team">Team B</span>
-                            <span class="event-player">Player #7</span>
-                        </div>
-                        <div class="event-item goal">
-                            <span class="event-time">67:15</span>
-                            <span class="event-type">Goal</span>
-                            <span class="event-team">Team A</span>
-                            <span class="event-player">Player #9</span>
-                        </div>
-                        <div class="event-item goal">
-                            <span class="event-time">82:30</span>
-                            <span class="event-type">Goal</span>
-                            <span class="event-team">Team B</span>
-                            <span class="event-player">Player #11</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="report-section">
-                    <button class="btn btn-primary btn-large" onclick="generateReport()">
-                        📄 Generate Match Report
-                    </button>
-                </div>
-            </div>
-
-            <!-- Watch Interface Preview -->
-            <div class="watch-preview">
-                <h3>Apple Watch Interface</h3>
-                <div class="watch-container">
-                    <div class="watch-screen">
-                        <div class="watch-header">
-                            <div class="watch-half">Half: 1</div>
-                            <div class="watch-time">45:30</div>
-                        </div>
-                        <div class="watch-controls">
-                            <button class="watch-btn" onclick="toggleWatchTimer()">
-                                <span id="watchTimerText">Start</span>
+                        
+                        <div class="timer-section">
+                            <button class="timer-btn" id="timerBtn" onclick="toggleTimer()">
+                                <span id="timerText">Start</span>
                             </button>
                         </div>
-                        <div class="watch-events">
-                            <button class="watch-event-btn goal">⚽</button>
-                            <button class="watch-event-btn yellow">🟨</button>
-                            <button class="watch-event-btn red">🟥</button>
-                            <button class="watch-event-btn sub">🔄</button>
+                        
+                        <div class="event-grid">
+                            <button class="event-btn goal" onclick="recordEvent('goal')">
+                                <div class="event-icon">⚽</div>
+                                <div class="event-label">Goal</div>
+                            </button>
+                            
+                            <button class="event-btn yellow" onclick="recordEvent('yellow')">
+                                <div class="event-icon">🟨</div>
+                                <div class="event-label">Yellow</div>
+                            </button>
+                            
+                            <button class="event-btn red" onclick="recordEvent('red')">
+                                <div class="event-icon">🟥</div>
+                                <div class="event-label">Red</div>
+                            </button>
+                            
+                            <button class="event-btn substitution" onclick="recordEvent('substitution')">
+                                <div class="event-icon">🔄</div>
+                                <div class="event-label">Sub</div>
+                            </button>
                         </div>
+                        
+                        <div class="haptic-feedback" id="hapticFeedback"></div>
                     </div>
                 </div>
+                
+                <div class="digital-crown"></div>
+                <div class="side-button"></div>
             </div>
         </div>
-
-        <!-- Modal for Event Details -->
-        <div class="modal hidden" id="eventModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Add Event</h3>
-                    <button class="close-btn" onclick="closeModal()">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Event Type:</label>
-                        <select id="eventType">
-                            <option value="goal">Goal</option>
-                            <option value="yellowCard">Yellow Card</option>
-                            <option value="redCard">Red Card</option>
-                            <option value="substitution">Substitution</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Team:</label>
-                        <select id="eventTeam">
-                            <option value="Team A">Team A</option>
-                            <option value="Team B">Team B</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Player:</label>
-                        <input type="text" id="eventPlayer" placeholder="Player name or number">
-                    </div>
-                    <div class="form-group">
-                        <label>Notes:</label>
-                        <textarea id="eventNotes" placeholder="Additional notes..."></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-                    <button class="btn btn-primary" onclick="saveEvent()">Save Event</button>
-                </div>
-            </div>
+        
+        <div class="controls-info">
+            <h3>Watch Controls</h3>
+            <p>Tap any button to simulate recording an event</p>
+            <p>Timer syncs with iPhone app via WatchConnectivity</p>
         </div>
-
-        <!-- Success Message -->
-        <div class="toast hidden" id="toast">
-            <span id="toastMessage">Event added successfully!</span>
+        
+        <div class="event-log" id="eventLog">
+            <h4>Recent Events</h4>
+            <div class="log-content" id="logContent">
+                <p class="no-events">No events recorded yet</p>
+            </div>
         </div>
     </div>
 
