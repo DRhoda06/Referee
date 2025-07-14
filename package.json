@@ -1,0 +1,12 @@
+{
+  "name": "soccer-referee-app",
+  "version": "1.0.0",
+  "description": "A soccer referee app with Swift and web components.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "echo 'Web development server not configured. Consider installing http-server (npm install --save-dev http-server) and changing this script to \"http-server .\"'"
+  },
+  "keywords": ["soccer", "referee", "watch", "swift", "web"],
+  "author": "Your Name",
+  "license": "ISC"
+}
